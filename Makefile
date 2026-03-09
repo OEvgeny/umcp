@@ -30,9 +30,11 @@ ESBUILD_SHARED_FLAGS := --sourcemap --format=esm --bundle --platform=browser --t
 
 TSC_SHARED_FLAGS := --allowJs --declaration --emitDeclarationOnly --noCheck --module esnext --moduleResolution bundler --verbatimModuleSyntax --esModuleInterop
 
-.PHONY: all clean
+.PHONY: all clean install-deps
 
-all: clean node_modules/@modelcontextprotocol/ext-apps/package.json $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json
+all: clean $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json
+
+install-deps: node_modules/@modelcontextprotocol/ext-apps/package.json
 
 $(OUT):
 	mkdir -p $(OUT)
