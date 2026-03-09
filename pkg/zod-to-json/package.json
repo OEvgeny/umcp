@@ -1,0 +1,8 @@
+{
+  "name": "zod-to-json",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "zod-to-json": "./zod-to-json.js"
+  }
+}

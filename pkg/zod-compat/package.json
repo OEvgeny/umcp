@@ -1,0 +1,7 @@
+{
+  "name": "zod-compat",
+  "private": true,
+  "type": "module",
+  "main": "./index.js",
+  "sideEffects": false
+}

@@ -1,0 +1,8 @@
+{
+  "name": "replace-strings",
+  "private": true,
+  "type": "module",
+  "bin": {
+    "replace-strings": "./replace-strings.js"
+  }
+}
