@@ -45,7 +45,7 @@ $(OUT)/package.json: umcp/package.json
 
 node_modules/@modelcontextprotocol/ext-apps/package.json:
   npm i --no-save https://github.com/modelcontextprotocol/ext-apps/archive/refs/tags/v1.2.0.tar.gz
-
+ 
 $(AJV_OUT): $(OUT)
 $(AJV_OUT): $(AJV_SRC)
 	esbuild $(AJV_SRC) --outfile=$(AJV_OUT) $(ESBUILD_SHARED_FLAGS)
