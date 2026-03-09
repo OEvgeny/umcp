@@ -32,7 +32,7 @@ TSC_SHARED_FLAGS := --allowJs --declaration --emitDeclarationOnly --noCheck --mo
 
 .PHONY: all clean
 
-all: clean node_modules/@modelcontextprotocol/ext-apps/package.json: $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json
+all: clean node_modules/@modelcontextprotocol/ext-apps/package.json $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json
 
 $(OUT):
 	mkdir -p $(OUT)
