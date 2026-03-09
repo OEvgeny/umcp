@@ -3,7 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "make": "tinymake"
+    "make": "tinymake",
+    "postinstall": "tinymake install-deps"
   },
   "dependencies": {
     "@modelcontextprotocol/sdk": "^1.27.1",
