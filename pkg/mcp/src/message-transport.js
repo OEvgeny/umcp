@@ -28,7 +28,7 @@
  *   params: {}
  * });
  */
-class MessagePortTransport {
+export class MessagePortTransport {
   /**
    * @param {MessagePort} port Connected message port used for transport I/O.
    */
