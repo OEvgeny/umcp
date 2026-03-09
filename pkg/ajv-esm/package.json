@@ -1,0 +1,6 @@
+{
+  "name": "ajv-esm",
+  "private": true,
+  "type": "module",
+  "sideEffects": false
+}

@@ -1,0 +1,5 @@
+releases:
+  - version: 0.0.1
+    release-name: umcp boot
+    description: |
+      This is the initial release of the umcp package.
