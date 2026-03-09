@@ -105,7 +105,7 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	replace-strings $(MCP_APPS_EXTENSION_OUT) -- ../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:./mcp-sdk-types.js \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
 	tsc $(MCP_APPS_EXTENSION_SRC) --outDir $(OUT) $(TSC_SHARED_FLAGS)
-	replace-strings $(OUT)/mcp-ext-apps.d.ts -- ../../node_modules/@modelcontextprotocol/ext-apps/src/app.ts:@modelcontextprotocol/ext-apps/types
+	replace-strings $(OUT)/mcp-ext-apps.d.ts -- ../../node_modules/@modelcontextprotocol/ext-apps/src/app.ts:@modelcontextprotocol/ext-apps/types ../../node_modules/@modelcontextprotocol/ext-apps/src/app-bridge.ts:@modelcontextprotocol/ext-apps/app-bridge
 
 clean:
 	rm -rf $(OUT)
