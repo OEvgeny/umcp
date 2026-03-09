@@ -2,7 +2,7 @@
 import {
   JSONRPCMessageSchema,
 } from "@modelcontextprotocol/sdk/types.js";
- 
+
 /**
  * @typedef {import("@modelcontextprotocol/sdk/types.js").JSONRPCMessage} JSONRPCMessage
  */
