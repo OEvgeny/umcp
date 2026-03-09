@@ -26,7 +26,7 @@
  *   id: 1,
  *   method: "ping",
  *   params: {}
- * }); 
+ * });
  */
 export class MessagePortTransport {
   /**
