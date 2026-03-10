@@ -114,7 +114,7 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	cp pkg/mcp/mcp-ext-apps.d.ts $(TMP)/pkg/mcp/
 	echo '{"type":"module","dependencies":{"@modelcontextprotocol/ext-apps":"*","@modelcontextprotocol/sdk":"*","zod":"*"}}' > $(TMP)/pkg/mcp/package.json
 	cd $(TMP)/pkg/mcp && dtsroll mcp-ext-apps.d.ts
-	cp $(TMP)/pkg/mcp/mcp-ext-apps.d.ts $(OUT)/mcp-ext-apps.d.ts
+	cp $(TMP)/pkg/mcp/mcp-ext-apps.d.ts $(OUT)/mcp-ext-apps.d.ts 
 
 clean-temp:
 	rm -rf $(TMP)
