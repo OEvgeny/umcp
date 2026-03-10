@@ -1,4 +1,8 @@
 releases:
+  - version: 0.0.8
+    release-name: umcp v0.0.8
+    description: |
+      Add safeParseAsync to mcp-zod-compat.
   - version: 0.0.7
     release-name: umcp v0.0.7
     description: |
