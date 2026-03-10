@@ -69,3 +69,6 @@ export {
   registerAppResource,
   registerAppTool
 } from '';
+export {
+  MessagePortTransport,
+} from './src/message-transport.js'
