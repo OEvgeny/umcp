@@ -98,7 +98,7 @@ $(MCP_SDK_CLIENT_OUT): $(MCP_SDK_CLIENT_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_SDK_SHAR
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
 	tsc $(MCP_SDK_CLIENT_SRC) --outDir $(OUT) $(TSC_SHARED_FLAGS)
 
-$(MCP_APPS_EXTENSION_OUT): $(OUT)
+$(MCP_APPS_EXTENSION_OUT): $(OUT) $(TMP)
 $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_SDK_SHARED_OUT) $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_TYPES_OUT)
 	esbuild $(MCP_APPS_EXTENSION_SRC) --outfile=$(MCP_APPS_EXTENSION_OUT) $(ESBUILD_SHARED_FLAGS) $(ZOD_ALIAS) \
 	--external:./node_modules/@modelcontextprotocol/sdk/dist/esm/types.js \
