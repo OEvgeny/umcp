@@ -105,7 +105,6 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	--external:./node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js
 	replace-strings $(MCP_APPS_EXTENSION_OUT) -- ../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:./mcp-sdk-types.js \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
-	mkdir -p $(TMP)
 	tsc $(MCP_APPS_EXTENSION_SRC) pkg/mcp/src/message-transport.js --outDir $(TMP) $(TSC_SHARED_FLAGS)
 	replace-strings $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts -- ../../node_modules/@modelcontextprotocol/ext-apps/src/app.ts:@modelcontextprotocol/ext-apps/types ../../node_modules/@modelcontextprotocol/ext-apps/src/app-bridge.ts:@modelcontextprotocol/ext-apps/app-bridge
 	echo 'export { MessagePortTransport } from "../../../pkg/mcp/src/message-transport.js";' >> $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts
