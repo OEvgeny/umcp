@@ -1,1 +1,2 @@
-export * from 'ajv';
+import ajv from 'ajv';
+export default ajv;
