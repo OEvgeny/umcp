@@ -71,4 +71,4 @@ export {
 } from '';
 export {
   MessagePortTransport,
-} from './src/message-transport.js'
+} from './src/message-transport'
