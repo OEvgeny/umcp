@@ -33,7 +33,7 @@ TSC_SHARED_FLAGS := --allowJs --declaration --emitDeclarationOnly --noCheck --mo
 
 .PHONY: all clean install-deps
 
-all: clean $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json
+all: clean $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json clean-temp
 
 install-deps: node_modules/@modelcontextprotocol/ext-apps/package.json
 
