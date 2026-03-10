@@ -1,11 +1,15 @@
 {
   "name": "umcp",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "Flat ESM bundles and declaration shims for MCP-related browser use",
   "type": "module",
   "license": "MIT",
   "sideEffects": false,
-  "files": ["*.js", "*.d.ts", "*.js.map"],
+  "files": [
+    "*.js",
+    "*.d.ts",
+    "*.js.map"
+  ],
   "main": "./index.js",
   "types": "./index.d.ts",
   "repository": {
@@ -21,8 +25,14 @@
     "zod": "^4.3.6"
   },
   "peerDependenciesMeta": {
-    "@modelcontextprotocol/ext-apps": { "optional": true },
-    "modelcontextprotocol/sdk": { "optional": true },
-    "zod": { "optional": true }
+    "@modelcontextprotocol/ext-apps": {
+      "optional": true
+    },
+    "modelcontextprotocol/sdk": {
+      "optional": true
+    },
+    "zod": {
+      "optional": true
+    }
   }
 }
