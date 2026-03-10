@@ -1,4 +1,8 @@
 releases:
+  - version: 0.0.9
+    release-name: umcp v0.0.9
+    description: |
+      Add toJSONSchema to mcp-zod-compat.
   - version: 0.0.8
     release-name: umcp v0.0.8
     description: |
