@@ -6477,9 +6477,9 @@ var require_ajv = __commonJS({
 });
 
 // pkg/ajv-esm/ajv.js
-var ajv = __toESM(require_ajv(), 1);
-var ajv_default = ajv;
+var import_ajv = __toESM(require_ajv(), 1);
+var export_default = import_ajv.default;
 export {
-  ajv_default as default
+  export_default as default
 };
 //# sourceMappingURL=ajv.js.map

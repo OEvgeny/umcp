@@ -6794,9 +6794,9 @@ var require_dist = __commonJS({
 });
 
 // pkg/ajv-esm/ajv-formats.js
-var ajvFormats = __toESM(require_dist(), 1);
-var ajv_formats_default = ajvFormats;
+var import_ajv_formats = __toESM(require_dist(), 1);
+var export_default = import_ajv_formats.default;
 export {
-  ajv_formats_default as default
+  export_default as default
 };
 //# sourceMappingURL=ajv-formats.js.map
