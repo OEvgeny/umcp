@@ -12,12 +12,16 @@
   },
   "devDependencies": {
     "ajv-esm": "file:pkg/ajv-esm",
+    "dtsroll": "^1.8.0",
     "esbuild": "^0.27.3",
     "mcp": "file:pkg/mcp",
     "replace-strings": "file:pkg/replace-strings",
     "tiny-make": "^0.0.2",
-    "typescript": "^6.0.1-rc",
+    "typescript": "6.0.1-rc",
     "zod-compat": "file:pkg/zod-compat",
     "zod-to-json": "file:pkg/zod-to-json"
+  },
+  "overrides": {
+    "typescript": "6.0.1-rc"
   }
 }

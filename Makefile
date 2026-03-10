@@ -1,5 +1,6 @@
 export PATH := $(realpath ../node_modules/.bin):$(PATH)
 OUT := out
+TMP := tmp
 
 MCP_SDK_TYPES_IMPORT := @modelcontextprotocol/sdk/types.js
 
@@ -30,11 +31,15 @@ ESBUILD_SHARED_FLAGS := --sourcemap --format=esm --bundle --platform=browser --t
 
 TSC_SHARED_FLAGS := --allowJs --declaration --emitDeclarationOnly --noCheck --module esnext --moduleResolution bundler --verbatimModuleSyntax --esModuleInterop
 
-.PHONY: all clean install-deps
+.PHONY: all clean clean-temp install-deps
 
-all: clean $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json
+all: clean $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json clean-temp
 
 install-deps: node_modules/@modelcontextprotocol/ext-apps/package.json
+
+
+$(TMP):
+	mkdir -p $(TMP)
 
 $(OUT):
 	mkdir -p $(OUT)
@@ -44,7 +49,7 @@ $(OUT)/package.json: umcp/package.json
 	cp $< $@
 
 node_modules/@modelcontextprotocol/ext-apps/package.json:
-	npm i --no-save https://github.com/modelcontextprotocol/ext-apps/archive/refs/tags/v1.2.0.tar.gz
+	npm i --no-save --force https://github.com/modelcontextprotocol/ext-apps/archive/refs/tags/v1.2.0.tar.gz
 
 $(AJV_OUT): $(OUT)
 $(AJV_OUT): $(AJV_SRC)
@@ -97,15 +102,22 @@ $(MCP_SDK_CLIENT_OUT): $(MCP_SDK_CLIENT_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_SDK_SHAR
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
 	tsc $(MCP_SDK_CLIENT_SRC) --outDir $(OUT) $(TSC_SHARED_FLAGS)
 
-$(MCP_APPS_EXTENSION_OUT): $(OUT)
+$(MCP_APPS_EXTENSION_OUT): $(OUT) $(TMP)
 $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_SDK_SHARED_OUT) $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_TYPES_OUT)
 	esbuild $(MCP_APPS_EXTENSION_SRC) --outfile=$(MCP_APPS_EXTENSION_OUT) $(ESBUILD_SHARED_FLAGS) $(ZOD_ALIAS) \
 	--external:./node_modules/@modelcontextprotocol/sdk/dist/esm/types.js \
 	--external:./node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js
 	replace-strings $(MCP_APPS_EXTENSION_OUT) -- ../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:./mcp-sdk-types.js \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
-	tsc $(MCP_APPS_EXTENSION_SRC) --outDir $(OUT) $(TSC_SHARED_FLAGS)
-	replace-strings $(OUT)/mcp-ext-apps.d.ts -- ../../node_modules/@modelcontextprotocol/ext-apps/src/app.ts:@modelcontextprotocol/ext-apps/types
+	tsc $(MCP_APPS_EXTENSION_SRC) pkg/mcp/src/message-transport.js --outDir $(TMP) $(TSC_SHARED_FLAGS)
+	replace-strings $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts -- ../../node_modules/@modelcontextprotocol/ext-apps/src/app.ts:@modelcontextprotocol/ext-apps/types ../../node_modules/@modelcontextprotocol/ext-apps/src/app-bridge.ts:@modelcontextprotocol/ext-apps/app-bridge
+	echo 'export { MessagePortTransport } from "../../../pkg/mcp/src/message-transport.js";' >> $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts
+	echo '{"type":"module","dependencies":{"@modelcontextprotocol/ext-apps":"*","@modelcontextprotocol/sdk":"*","zod":"*"}}' > $(TMP)/node_modules/mcp/package.json
+	cd $(TMP)/node_modules/mcp && dtsroll mcp-ext-apps.d.ts
+	cp $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts $(OUT)/mcp-ext-apps.d.ts
+
+clean-temp:
+	rm -rf $(TMP)
 
 clean:
 	rm -rf $(OUT)
