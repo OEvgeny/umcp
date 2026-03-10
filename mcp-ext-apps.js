@@ -3055,6 +3055,39 @@ function deepEqual(a, b) {
   return JSON.stringify(a) === JSON.stringify(b);
 }
 
+// node_modules/@modelcontextprotocol/ext-apps/src/server/index.ts
+function registerAppTool(server, name, config, cb) {
+  const meta = config._meta;
+  const uiMeta = meta.ui;
+  const legacyUri = meta[RESOURCE_URI_META_KEY];
+  let normalizedMeta = meta;
+  if (uiMeta?.resourceUri && !legacyUri) {
+    normalizedMeta = { ...meta, [RESOURCE_URI_META_KEY]: uiMeta.resourceUri };
+  } else if (legacyUri && !uiMeta?.resourceUri) {
+    normalizedMeta = { ...meta, ui: { ...uiMeta, resourceUri: legacyUri } };
+  }
+  return server.registerTool(name, { ...config, _meta: normalizedMeta }, cb);
+}
+function registerAppResource(server, name, uri, config, readCallback) {
+  return server.registerResource(
+    name,
+    uri,
+    {
+      // Default MIME type for MCP App UI resources (can still be overridden by config below)
+      mimeType: RESOURCE_MIME_TYPE,
+      ...config
+    },
+    readCallback
+  );
+}
+var EXTENSION_ID = "io.modelcontextprotocol/ui";
+function getUiCapability(clientCapabilities) {
+  if (!clientCapabilities) {
+    return void 0;
+  }
+  return clientCapabilities.extensions?.[EXTENSION_ID];
+}
+
 // pkg/mcp/src/message-transport.js
 import {
   JSONRPCMessageSchema as JSONRPCMessageSchema2
@@ -3180,6 +3213,7 @@ export {
   App,
   AppBridge,
   DOWNLOAD_FILE_METHOD,
+  EXTENSION_ID,
   HOST_CONTEXT_CHANGED_METHOD,
   INITIALIZED_METHOD,
   INITIALIZE_METHOD,
@@ -3241,7 +3275,10 @@ export {
   buildAllowAttribute,
   getDocumentTheme,
   getToolUiResourceUri,
+  getUiCapability,
   isToolVisibilityAppOnly,
-  isToolVisibilityModelOnly
+  isToolVisibilityModelOnly,
+  registerAppResource,
+  registerAppTool
 };
 //# sourceMappingURL=mcp-ext-apps.js.map
