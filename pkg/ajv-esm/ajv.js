@@ -1,2 +1,1 @@
-import * as ajv from 'ajv';
-export default ajv;
+import { default} from 'ajv';
