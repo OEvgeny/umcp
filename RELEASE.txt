@@ -1,3 +1,3 @@
-tag: v0.0.1
-source_sha: 443d5de8b1a484151c60dbbd043f501ef7bc885f
-built_at: 2026-03-09T23:03:24Z
+tag: v0.0.2
+source_sha: e849e40b016bb6c9d1cdebeb6ca3ee8c22ed693b
+built_at: 2026-03-10T02:49:00Z
