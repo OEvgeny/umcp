@@ -31,7 +31,7 @@ ESBUILD_SHARED_FLAGS := --sourcemap --format=esm --bundle --platform=browser --t
 
 TSC_SHARED_FLAGS := --allowJs --declaration --emitDeclarationOnly --noCheck --module esnext --moduleResolution bundler --verbatimModuleSyntax --esModuleInterop
 
-.PHONY: all clean install-deps
+.PHONY: all clean clean-temp install-deps
 
 all: clean $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT) $(MCP_SDK_CLIENT_OUT) $(MCP_APPS_EXTENSION_OUT) $(OUT)/package.json clean-temp
 
