@@ -107,7 +107,8 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	esbuild $(MCP_APPS_EXTENSION_SRC) --outfile=$(MCP_APPS_EXTENSION_OUT) $(ESBUILD_SHARED_FLAGS) $(ZOD_ALIAS) \
 	--external:./node_modules/@modelcontextprotocol/sdk/dist/esm/types.js \
 	--external:./node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js
-	replace-strings $(MCP_APPS_EXTENSION_OUT) -- ../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:./mcp-sdk-types.js \
+	replace-strings $(MCP_APPS_EXTENSION_OUT) -- \
+	../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:./mcp-sdk-types.js \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
 	tsc $(MCP_APPS_EXTENSION_SRC) pkg/mcp/src/message-transport.js --outDir $(TMP) $(TSC_SHARED_FLAGS)
 	replace-strings $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts -- \
