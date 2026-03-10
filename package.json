@@ -12,6 +12,7 @@
   },
   "devDependencies": {
     "ajv-esm": "file:pkg/ajv-esm",
+    "dtsroll": "^1.8.0",
     "esbuild": "^0.27.3",
     "mcp": "file:pkg/mcp",
     "replace-strings": "file:pkg/replace-strings",
