@@ -7521,6 +7521,7 @@ export {
   refine,
   _regex as regex,
   safeParse,
+  safeParseAsync,
   set,
   _size as size,
   _slugify as slugify,

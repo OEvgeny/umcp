@@ -163,6 +163,7 @@ export {
   refine,
   regex,
   safeParse,
+  safeParseAsync,
   set,
   size,
   slugify,
