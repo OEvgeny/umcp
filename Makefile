@@ -1,6 +1,6 @@
 export PATH := $(realpath ../node_modules/.bin):$(PATH)
 OUT := out
-TMP := temp
+TMP := tmp
 
 MCP_SDK_TYPES_IMPORT := @modelcontextprotocol/sdk/types.js
 
