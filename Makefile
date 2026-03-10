@@ -111,7 +111,7 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:./mcp-sdk-types.js \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
 	mkdir -p $(TMP)/pkg/mcp/src
-	tsc  --outDir $(TMP) $(TSC_SHARED_FLAGS)
+	tsc $(MCP_APPS_EXTENSION_SRC) node_modules/mcp/src/* --outDir $(TMP) $(TSC_SHARED_FLAGS)
 
 clean-temp:
 	rm -rf $(TMP)
