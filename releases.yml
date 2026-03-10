@@ -1,4 +1,8 @@
 releases:
+  - version: 0.0.4
+    release-name: umcp v0.0.4
+    description: |
+      Fixed mcp-zod-compat exports.
   - version: 0.0.3
     release-name: umcp v0.0.3
     description: |
