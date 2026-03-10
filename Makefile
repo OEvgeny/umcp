@@ -113,5 +113,8 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	cd $(TEMP)/node_modules/mcp && dtsroll mcp-ext-apps.d.ts
 	cp $(TEMP)/node_modules/mcp/mcp-ext-apps.d.ts $(OUT)/mcp-ext-apps.d.ts
 
-clean:
-	rm -rf $(OUT) $(TEMP)
+clean-temp:
+	rm -rf $(TEMP)
+
+clean: clean-temp
+	rm -rf $(OUT)
