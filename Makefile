@@ -119,5 +119,5 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 clean-temp:
 	rm -rf $(TMP)
 
-clean: clean-temp
+clean:
 	rm -rf $(OUT)
