@@ -113,7 +113,7 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	replace-strings $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts -- \
 	../../node_modules/@modelcontextprotocol/ext-apps/src/app.ts:@modelcontextprotocol/ext-apps \
 	../../node_modules/@modelcontextprotocol/ext-apps/src/app-bridge.ts:@modelcontextprotocol/ext-apps/app-bridge \
-	../../node_modules/@modelcontextprotocol/ext-apps/src/server.ts:@modelcontextprotocol/ext-apps/server
+	../../node_modules/@modelcontextprotocol/ext-apps/src/server/index.ts:@modelcontextprotocol/ext-apps
 	echo 'export { MessagePortTransport } from "../../../pkg/mcp/src/message-transport.js";' >> $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts
 	echo '{"type":"module","dependencies":{"@modelcontextprotocol/ext-apps":"*","@modelcontextprotocol/sdk":"*","zod":"*"}}' > $(TMP)/node_modules/mcp/package.json
 	cd $(TMP)/node_modules/mcp && dtsroll mcp-ext-apps.d.ts
