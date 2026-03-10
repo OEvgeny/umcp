@@ -110,7 +110,7 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	replace-strings $(MCP_APPS_EXTENSION_OUT) -- \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:./mcp-sdk-types.js \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
-	tsc pkg/mcp/src/message-transport.js --outDir $(TMP)/pkg/mcp $(TSC_SHARED_FLAGS)
+	tsc pkg/mcp/src/message-transport.js --outDir $(TMP)/pkg/mcp/ $(TSC_SHARED_FLAGS)
 	cp pkg/mcp/mcp-ext-apps.d.ts $(TMP)/pkg/mcp/
 	echo '{"type":"module","dependencies":{"@modelcontextprotocol/ext-apps":"*","@modelcontextprotocol/sdk":"*","zod":"*"}}' > $(TMP)/pkg/mcp/package.json
 	cd $(TMP)/pkg/mcp && dtsroll mcp-ext-apps.d.ts
