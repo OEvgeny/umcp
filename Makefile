@@ -110,8 +110,13 @@ $(MCP_APPS_EXTENSION_OUT): $(MCP_APPS_EXTENSION_SRC) $(MCP_SDK_TYPES_OUT) $(MCP_
 	replace-strings $(MCP_APPS_EXTENSION_OUT) -- \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/types.js:./mcp-sdk-types.js \
 	../node_modules/@modelcontextprotocol/sdk/dist/esm/shared/protocol.js:./mcp-sdk-shared.js
-	tsc $(MCP_APPS_EXTENSION_SRC) pkg/mcp/src/message-transport.js --outDir $(TMP) $(TSC_SHARED_FLAGS)
-	
+	tsc pkg/mcp/src/message-transport.js --outDir $(TMP) $(TSC_SHARED_FLAGS)
+  cp pkg/mcp/mcp-ext-apps.d.ts $(TMP)/pkg/mcp/
+	echo 'export { MessagePortTransport } from "../../../pkg/mcp/src/message-transport.js";' >> $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts
+	echo '{"type":"module","dependencies":{"@modelcontextprotocol/ext-apps":"*","@modelcontextprotocol/sdk":"*","zod":"*"}}' > $(TMP)/node_modules/mcp/package.json
+	cd $(TMP)/node_modules/mcp && dtsroll mcp-ext-apps.d.ts
+	cp $(TMP)/node_modules/mcp/mcp-ext-apps.d.ts $(OUT)/mcp-ext-apps.d.ts
+
 clean-temp:
 	rm -rf $(TMP)
 
