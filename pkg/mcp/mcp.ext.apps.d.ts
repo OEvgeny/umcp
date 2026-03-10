@@ -68,7 +68,7 @@ export {
   isToolVisibilityModelOnly,
   registerAppResource,
   registerAppTool
-} from '';
+} from '@modelcontextprotocol/ext-apps';
 export {
   MessagePortTransport,
 } from './src/message-transport'
