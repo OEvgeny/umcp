@@ -136,6 +136,14 @@ jobs:
           test -d out
           test -f out/package.json
 
+      - name: Stamp package version
+        if: steps.rel.outputs.should_publish == 'true'
+        shell: bash
+        run: |
+          VERSION="${{ steps.rel.outputs.version }}"
+          npm pkg set --prefix out version="$VERSION"
+          node -p "require('./out/package.json').version"
+
       - name: Stage package
         if: steps.rel.outputs.should_publish == 'true'
         shell: bash
