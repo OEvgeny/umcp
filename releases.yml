@@ -3,6 +3,10 @@ releases:
     release-name: umcp v0.0.2
     description: |
       Added app-bridge exports and MessagePortTransport.
+  - version: 0.0.2
+    release-name: umcp v0.0.2
+    description: |
+      Added app-bridge exports and MessagePortTransport.
   - version: 0.0.1
     release-name: umcp boot
     description: |
