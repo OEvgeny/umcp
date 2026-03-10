@@ -2,7 +2,7 @@ releases:
   - version: 0.0.5
     release-name: umcp v0.0.5
     description: |
-      Added server utilities to mcp-ext-apps entry.
+      Added app server utilities to mcp-ext-apps entry.
   - version: 0.0.4
     release-name: umcp v0.0.4
     description: |
