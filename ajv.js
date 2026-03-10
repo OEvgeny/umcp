@@ -15,7 +15,6 @@ var __copyProps = (to, from, except, desc) => {
   }
   return to;
 };
-var __reExport = (target, mod, secondTarget) => (__copyProps(target, mod, "default"), secondTarget && __copyProps(secondTarget, mod, "default"));
 var __toESM = (mod, isNodeMode, target) => (target = mod != null ? __create(__getProtoOf(mod)) : {}, __copyProps(
   // If the importer is in node compatibility mode or this is not an ESM
   // file that has been converted to a CommonJS file using a Babel-
@@ -6478,6 +6477,9 @@ var require_ajv = __commonJS({
 });
 
 // pkg/ajv-esm/ajv.js
-var ajv_exports = {};
-__reExport(ajv_exports, __toESM(require_ajv(), 1));
+var ajv = __toESM(require_ajv(), 1);
+var ajv_default = ajv;
+export {
+  ajv_default as default
+};
 //# sourceMappingURL=ajv.js.map
