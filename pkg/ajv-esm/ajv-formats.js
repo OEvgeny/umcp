@@ -1,2 +1,2 @@
-import ajvFormats from 'ajv-formats';
+import * as ajvFormats from 'ajv-formats';
 export default ajvFormats;
