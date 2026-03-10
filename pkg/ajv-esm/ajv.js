@@ -1,1 +1,1 @@
-import { default} from 'ajv';
+export { default } from 'ajv';
