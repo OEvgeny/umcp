@@ -2,7 +2,7 @@ releases:
   - version: 0.0.2
     release-name: umcp v0.0.2
     description: |
-      Added app-bridge exports and MessagePortTransport.
+      Fixed ajv-esm exports.
   - version: 0.0.2
     release-name: umcp v0.0.2
     description: |
