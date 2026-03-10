@@ -37,6 +37,10 @@ all: clean $(MCP_ZOD_COMPAT_OUT) $(MCP_SDK_JSON_TYPES_OUT) $(MCP_SDK_SERVER_OUT)
 
 install-deps: node_modules/@modelcontextprotocol/ext-apps/package.json
 
+
+$(TMP):
+	mkdir -p $(TMP)
+
 $(OUT):
 	mkdir -p $(OUT)
 
