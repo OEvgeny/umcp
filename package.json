@@ -1,6 +1,6 @@
 {
   "name": "umcp",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "Flat ESM bundles and declaration shims for MCP-related browser use",
   "type": "module",
   "license": "MIT",
