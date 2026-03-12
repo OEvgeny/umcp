@@ -101,4 +101,5 @@
 export * from '../../node_modules/zod/v4/classic/checks.js';
 export * as iso from '../../node_modules/zod/v4/classic/iso.js';
 export * from '../../node_modules/zod/v4/classic/schemas.js';
+export * as coerce from '../../node_modules/zod/v4/classic/coerce.js';
 // #endregion
