@@ -1,6 +1,6 @@
 releases:
   - version: 0.1.2
-    release-name: umcp v0.1.1
+    release-name: umcp v0.1.2
     description: |
       Add coerce to mcp-zod-compat.
   - version: 0.1.1
